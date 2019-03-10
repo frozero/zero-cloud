@@ -1,0 +1,66 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://local.mysql.com:3306/zero_cloud?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      connection-test-query: SELECT 1
+  rabbitmq:
+    host: local.rabbitmq.com
+    port: 5672
+    username: cloud-dev
+    password: cloud-dev
+    virtual-host: /
+  redis:
+    host: local.redis.com
+    port: 6379
+    password:
+    timeout: 20s
+    lettuce:
+      pool:
+        min-idle: 0
+        max-idle: 8
+        max-active: 8
+        max-wait: -1ms
+  mvc:
+    servlet:
+      load-on-startup: 1
+  aop:
+    proxy-target-class: true
+  zipkin:
+    base-url: http://localhost:9411
+    enabled: true
+    sender:
+      type: web
+mybatis-plus:
+  type-aliases-package: com.zero.api.model.user
+  mapper-locations: classpath:/mybatis-mappers/*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://gateway-zuul/api-o/user-me
+      prefer-token-info: false
+wechat:
+  domain: http://gateway-zuul/api-u
+  infos:
+    app1:
+      appid: xxx
+      secret: xxx
+    app2:
+      appid: xxx
+      secret: xxx
+ribbon:
+  ReadTimeout: 50000
+  ConnectTimeout: 50000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000

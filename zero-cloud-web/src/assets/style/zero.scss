@@ -1,0 +1,68 @@
+/**
+
+ zero 自定义样式
+
+**/
+
+.zero-dialog .el-dialog__body{
+  padding: 20px 30px 5px 20px;
+}
+
+.zero-dialog .el-dialog{
+  margin-top: 10vh !important;
+}
+
+.zero-form-textarea textarea{
+  font-family: "Arial", "Microsoft YaHei", "\9ED1\4F53", "\5B8B\4F53", sans-serif;
+  color: #030406;
+}
+
+.zero-popper-condition {
+  padding: 0px !important;
+}
+
+.zero-table-expand {
+  font-size: 0 !important;
+}
+
+.zero-table-expand label {
+  width: 90px;
+  color: #99a9bf;
+  text-align: right !important;
+}
+
+.zero-table-expand .el-form-item {
+  margin-right: 0 !important;
+  margin-bottom: 0 !important;
+  width: 50%;
+}
+
+.zero-tree-left{
+  padding: 0 5px 0 0;
+}
+
+.zero-tree-node{
+  color:#606266 !important;
+  font-size: 14px;
+}
+
+.zero-scrollbar{
+  height: 100%;
+}
+.zero-scrollbar .el-scrollbar__wrap{
+  overflow-x: auto !important;
+}
+
+/**
+
+ zero 覆盖默认样式
+ Created by 风象南(yuboon) on 2018-10-08
+
+**/
+.splitter-pane-resizer{
+  z-index: 100 !important;
+}
+
+body .el-table th.gutter{
+  display: table-cell !important;
+}

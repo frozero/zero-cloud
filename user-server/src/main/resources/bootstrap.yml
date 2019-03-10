@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: user-server
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        serviceId: config-server
+      profile: dev
+      fail-fast: true
+server:
+  port: 9004
+  servlet:
+    session:
+      cookie:
+        name: OAUTH2SESSION
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://local.register.com:9000/eureka/
+    registry-fetch-interval-seconds: 5
+  instance:
+    lease-expiration-duration-in-seconds: 15
+    lease-renewal-interval-in-seconds: 5
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://gateway-zuul/api-o/user-me
+      prefer-token-info: false

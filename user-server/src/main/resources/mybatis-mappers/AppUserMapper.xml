@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zero.user.server.dao.AppUserDao">
+
+	<update id="update">
+		update app_user
+		<set>
+			<if test="password != null and password != ''">
+				password = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="nickname != null and nickname != ''">
+				nickname = #{nickname,jdbcType=VARCHAR},
+			</if>
+			<if test="headImgUrl != null and headImgUrl != ''">
+				headImg_url = #{headImgUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null and phone != ''">
+				phone = #{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				sex = #{sex,jdbcType=BIT},
+			</if>
+			<if test="enabled != null">
+				enabled = #{enabled,jdbcType=BIT},
+			</if>
+			<if test="updateTime != null">
+				update_time = #{updateTime,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<select id="list" resultType="AppUser">
+		select * from app_user t
+		<include refid="where" />
+		order by create_time desc
+	</select>
+
+	<sql id="where">
+		<where>
+			<if test="query.username != null and query.username != ''">
+				<bind name="_username" value="'%' + query.username + '%'"/>
+				and t.username like #{_username}
+			</if>
+			<if test="query.nickname != null and query.nickname != ''">
+				<bind name="_nickname" value="'%' + query.nickname + '%'"/>
+				and t.nickname like #{_nickname}
+			</if>
+			<if test="query.enabled != null and query.enabled != ''">
+				and t.enabled = #{query.enabled}
+			</if>
+			<if test="query.type != null and query.type != ''">
+				and t.type = #{query.type}
+			</if>
+		</where>
+	</sql>
+
+</mapper>
