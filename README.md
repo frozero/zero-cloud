@@ -14,3 +14,14 @@ oauth-server -- 认证中心
 user-server -- 用户中心
 zero-cloud-web -- 前端文件
 ```
+### 功能预览
+![image](https://github.com/frozero/zero-cloud/blob/master/img/1.PNG)
+![image](https://github.com/frozero/zero-cloud/blob/master/img/2.PNG)
+![image](https://github.com/frozero/zero-cloud/blob/master/img/3.PNG)
+![image](https://github.com/frozero/zero-cloud/blob/master/img/4.PNG)
+![image](https://github.com/frozero/zero-cloud/blob/master/img/5.PNG)
+![image](https://github.com/frozero/zero-cloud/blob/master/img/6.PNG)
+![image](https://github.com/frozero/zero-cloud/blob/master/img/7.PNG)
+![image](https://github.com/frozero/zero-cloud/blob/master/img/8.PNG)
+![image](https://github.com/frozero/zero-cloud/blob/master/img/9.PNG)
+![image](https://github.com/frozero/zero-cloud/blob/master/img/10.PNG)
